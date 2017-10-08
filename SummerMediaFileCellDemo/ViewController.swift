@@ -28,7 +28,7 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 85
+    return 100
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return testArray.count
@@ -37,10 +37,7 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
     
     let cell = SummerMediaFileCell(style:UITableViewCellStyle.default , reuseIdentifier: "test")
     
-      cell.fileName.text = testArray[indexPath.row]
-      cell.fileFormat.text = "\(indexPath.row)"
-   
-
+    
     return cell
   }
 
