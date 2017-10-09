@@ -11,8 +11,10 @@ import UIKit
 open class SummerMediaFileCell: UITableViewCell {
   
   open var fileName: UILabel!
-  open var fileFormat: UILabel!
+  open var fileDuration: UILabel!
   open var fileSize: UILabel!
+  open var fileFormat: UILabel!
+  
   
   open var fileThumbnailView: UIImageView!
   open var bookmarkButton : UIButton!
@@ -25,10 +27,10 @@ open class SummerMediaFileCell: UITableViewCell {
   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
+    setupBasicConfiguration()
     setupThumbnailView()
-    
-    setupOthersView()
-    
+    setupLabels()
+    setupBookmarkButton()
     
 
   
@@ -44,6 +46,10 @@ open class SummerMediaFileCell: UITableViewCell {
     
   }
   
+  private func setupBasicConfiguration() {
+    self.backgroundColor = UIColor.gray
+  }
+  
   private func setupThumbnailView() {
     let wholeWidth = self.frame.size.width * 0.5
     let wholeHeight = (self.frame.size.height * 2 )-20
@@ -54,14 +60,67 @@ open class SummerMediaFileCell: UITableViewCell {
     contentView.addSubview(fileThumbnailView)
   }
   
-  private func setupOthersView() {
+  private func setupLabels() {
     let wholeWidth = self.frame.size.width * 0.5
     let wholeHeight = (self.frame.size.height)/3
     
-    fileName = UILabel(frame:CGRect(x:self.fileThumbnailView.frame.origin.x + self.fileThumbnailView.frame.width + 10 ,y:20 , width: wholeWidth, height: wholeHeight))
+    // for FileName Label.
+    
+    let fileNameRect = CGRect(x:self.fileThumbnailView.frame.origin.x + self.fileThumbnailView.frame.width + 10 ,y:30 , width: wholeWidth, height: wholeHeight)
+    
+    fileName = UILabel(frame: fileNameRect)
     fileName.text = "Hello World"
     
     contentView.addSubview(fileName)
+    
+    // for FileDuration Label.
+    let fileDurationRect = CGRect(x:self.fileThumbnailView.frame.origin.x + self.fileThumbnailView.frame.width + 10 ,y:self.fileName.frame.origin.y + self.fileName.frame.height + 10, width:45, height: wholeHeight)
+    
+    fileDuration = UILabel(frame: fileDurationRect)
+    
+    fileDuration.font = fileDuration.font.withSize(12)
+    fileDuration.text = "00:50 |"
+    
+    contentView.addSubview(fileDuration)
+    
+    // for FileSize Label.
+    let fileSizeRect = CGRect(x:self.fileDuration.frame.origin.x + self.fileDuration.frame.width + 3 ,y:self.fileName.frame.origin.y + self.fileName.frame.height + 10, width: 45, height: wholeHeight)
+    
+    fileSize = UILabel(frame:fileSizeRect)
+    
+    fileSize.font = fileSize.font.withSize(12)
+    fileSize.text = "7MB |"
+    
+    contentView.addSubview(fileSize)
+    
+    // for FileSize Label.
+    let fileFormatRect = CGRect(x:self.fileSize.frame.origin.x + self.fileSize.frame.width ,y:self.fileName.frame.origin.y + self.fileName.frame.height + 10, width: 45, height: wholeHeight)
+    
+    fileFormat = UILabel(frame:fileFormatRect)
+    
+    fileFormat.font = fileFormat.font.withSize(12)
+    fileFormat.text = "MP3 "
+    
+    contentView.addSubview(fileFormat)
+
+  }
+  
+  private func setupBookmarkButton() {
+    let wholeHeight = (self.frame.size.height)/3
+    
+    // for FileSize Label.
+    let bookmarkRect = CGRect(x:self.fileFormat.frame.origin.x + self.fileFormat.frame.width ,y:self.fileName.frame.origin.y + self.fileName.frame.height + 10, width: 45, height: wholeHeight)
+    
+    bookmarkButton = UIButton(frame:bookmarkRect)
+    
+    let btnImage = UIImage(named: "bookmark")
+    
+    bookmarkButton.setImage(btnImage , for: UIControlState.normal)
+    bookmarkButton.tintColor = UIColor.yellow
+    
+    
+    contentView.addSubview(bookmarkButton)
+    
   }
 
 }
