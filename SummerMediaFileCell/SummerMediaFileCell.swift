@@ -25,16 +25,9 @@ open class SummerMediaFileCell: UITableViewCell {
   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-    self.backgroundView?.backgroundColor = UIColor.blue
+    setupThumbnailView()
     
-    self.contentView.backgroundColor = UIColor.red
-    let width = self.contentView.frame.size.width * 0.5
-    _ = self.frame.size.height
-    
-    fileThumbnailView  = UIImageView(frame:CGRect(x:10, y:10, width:width, height:self.frame.size.height));
-    fileThumbnailView.image = UIImage(named:"default.png")
-    
-    contentView.addSubview(fileThumbnailView)
+    setupOthersView()
     
     
 
@@ -49,6 +42,26 @@ open class SummerMediaFileCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     
+  }
+  
+  private func setupThumbnailView() {
+    let wholeWidth = self.frame.size.width * 0.5
+    let wholeHeight = (self.frame.size.height * 2 )-20
+    
+    fileThumbnailView  = UIImageView(frame:CGRect(x:20, y:20, width:wholeWidth, height:wholeHeight));
+    fileThumbnailView.image = UIImage(named:"default.png")
+    
+    contentView.addSubview(fileThumbnailView)
+  }
+  
+  private func setupOthersView() {
+    let wholeWidth = self.frame.size.width * 0.5
+    let wholeHeight = (self.frame.size.height)/3
+    
+    fileName = UILabel(frame:CGRect(x:self.fileThumbnailView.frame.origin.x + self.fileThumbnailView.frame.width + 10 ,y:20 , width: wholeWidth, height: wholeHeight))
+    fileName.text = "Hello World"
+    
+    contentView.addSubview(fileName)
   }
 
 }
