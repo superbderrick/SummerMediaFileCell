@@ -1,9 +1,8 @@
 ## SummerMediaFileCell
 
+The SummerMediaFire cell is a Custom UITableViewCell for the iOS Media App. I just have created it for iOS Development practice. It can be used as simple Custom UITableViewCell Tutorial :)
 
-The Summer MediaFire cell is the Custom UITableViewCell for the iOS Media App. I've created it for iOS Develpment Practice , It can be used as simeple Custom UITableViewCell Tutorial.
-
-![demo](https://github.com/superbderrick/SummerSlider/blob/master/Image/demo1.gif)
+![demo](https://github.com/superbderrick/SummerMediaFileCell/blob/master/demo/demo.png)
 
 
 
