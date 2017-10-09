@@ -47,7 +47,7 @@ open class SummerMediaFileCell: UITableViewCell {
   }
   
   private func setupBasicConfiguration() {
-    self.backgroundColor = UIColor.gray
+    self.backgroundColor = #colorLiteral(red: 0.9686, green: 0.851, blue: 0.8039, alpha: 1) /* #f7d9cd */
   }
   
   private func setupThumbnailView() {
